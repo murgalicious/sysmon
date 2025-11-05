@@ -67,3 +67,44 @@ WantedBy=multi-user.target
 sudo systemctl daemon-reload
 sudo systemctl enable sysmon.service
 sudo systemctl start sysmon.service
+```
+## Usage
+
+Once SysMon2 is running (either manually or as a systemd service), you can interact with it directly via Telegram. The bot responds to simple commands that help you monitor and manage your server.
+
+### Telegram Commands
+
+- **`/status`**  
+  Get a real-time snapshot of your server's current status. The bot will reply with:
+  - CPU usage (%) and if it's above the threshold  
+  - RAM usage (%) and if it's above the threshold  
+  - Disk usage of monitored mount points (%)  
+  - CPU temperature (°C)  
+  - Docker container status (running vs total containers)  
+
+- **`/ack`**  
+  Acknowledge any active alarms. This prevents the bot from repeatedly sending notifications for the same issue until a new alert is triggered.
+
+### What to Expect
+
+- **Alerts:**  
+  If any of your system thresholds are exceeded (CPU, RAM, Disk, Temp, Docker status), the bot sends an immediate Telegram alert with details. Example:
+
+- **Periodic Status:**  
+SysMon2 checks your system at the interval specified in `CHECK_INTERVAL` (default 60 seconds). It only sends notifications when something exceeds the thresholds, keeping your chat clutter-free.
+
+
+Once an alert is acknowledged via `/ack`, SysMon2 will suppress further notifications for that specific issue until the next check detects a new threshold breach.
+
+### Example Workflow
+
+1. You notice a Telegram alert for high RAM usage.  
+2. Run `/status` to see a detailed breakdown of all monitored metrics.  
+3. After investigating and fixing the issue, run `/ack` to acknowledge the alert.  
+4. SysMon2 continues monitoring in the background and will notify you only if a new issue occurs.
+
+## Screenshot (Telegram Alerts)
+
+![Telegram Alert Screenshot](scrot.png)
+
+
