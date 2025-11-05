@@ -1,6 +1,6 @@
-# SysMon2 - System & Docker Monitoring Bot
+# SysMon - System & Docker Monitoring Bot
 
-**SysMon2** is a Python-based monitoring bot that keeps track of system resources, disk usage, and Docker container statuses. It sends alerts to a Telegram chat when thresholds are exceeded, allowing you to monitor your server remotely.
+**SysMon** is a Python-based monitoring bot that keeps track of system resources, disk usage, and Docker container statuses. It sends alerts to a Telegram chat when thresholds are exceeded, allowing you to monitor your server remotely.
 
 ---
 
